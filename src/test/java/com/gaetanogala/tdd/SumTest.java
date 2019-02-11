@@ -1,59 +1,77 @@
 package com.gaetanogala.tdd;
 
-import com.gaetanogala.service.Sum;
+import com.gaetanogala.entity.Sum;
+import org.junit.*;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
-import java.util.*;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SumTest {
 
-    private Sum sum = new Sum();
+    private Sum sumTest = new Sum();
 
-    @Test
-    public void testValoreInteroASetterGetter(){
+    @BeforeAll
+    public void initClass(){
 
-        sum.setValoreInteroA(5);
-        assertEquals(Optional.of(5).get(), sum.getValoreInteroA());
+    }
+
+    @BeforeEach
+    public void init(){
+        sumTest = new Sum();
+    }
+
+    @AfterEach
+    public void afterTest(){
+
+    }
+
+    @AfterAll
+    public void afterclass(){
+
     }
 
     @Test
-    public void testValoreInteroBSetterGetter(){
+    public void testASetter(){
 
-        sum.setValoreInteroB(9);
-        assertEquals(Optional.of(9).get(), sum.getValoreInteroB());
+        sumTest.setA(5);
+        Assert.assertEquals(5, sumTest.getA());
     }
 
     @Test
-    public void testIntgerSum(){
+    public void testBSetter(){
 
-        sum.setValoreInteroA(5);
-        sum.setValoreInteroB(3);
+        sumTest.setB(5);
+        Assert.assertEquals(5, sumTest.getB());
+    }
+
+    @Test
+    public void testSumMethod(){
+
+        sumTest.setA(5);
+        sumTest.setB(4);
         try {
-            assertEquals(Optional.of(8).get(), sum.sumIntegerValues());
+            Assert.assertEquals(9, sumTest.sum());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void exceptionThrows(){
-        sum = new Sum();
-        assertThrows(Exception.class, ()->sum.sumIntegerValues());
+    public void assertExceptionThrows(){
+
+        Assertions.assertThrows(Exception.class, ()->sumTest.sum());
     }
 
     @Test
-    public void exceptionThrowsSettingValueA(){
-        sum = new Sum();
-        sum.setValoreInteroA(10);
-        assertThrows(Exception.class, ()->sum.sumIntegerValues());
+    public void assertExceptionThrowsASetted(){
+
+        sumTest.setA(20);
+        Assertions.assertThrows(Exception.class, ()->sumTest.sum());
     }
 
     @Test
-    public void exceptionThrowsSettingValueB(){
-        sum = new Sum();
-        sum.setValoreInteroB(4);
-        assertThrows(Exception.class, ()->sum.sumIntegerValues());
+    public void assertExceptionThrowsBSetted(){
+
+        sumTest.setB(10);
+        Assertions.assertThrows(Exception.class, ()->sumTest.sum());
     }
 }

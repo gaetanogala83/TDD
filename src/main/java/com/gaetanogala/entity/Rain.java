@@ -1,8 +1,5 @@
 package com.gaetanogala.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Rain {
 
     public boolean isRaining(int i) {
@@ -10,8 +7,12 @@ public class Rain {
         return (i>5);
     }
 
-    public List<Boolean> isRainingMoreZones(List<Integer> umidityValues) {
+    public boolean[] isRainingArray(int[] umidity) {
 
-        return new ArrayList<Boolean>(){{umidityValues.forEach(integer -> add(isRaining(integer)));}};
+        boolean[] response = new boolean[umidity.length];
+        for (int i=0; i < umidity.length; i++)
+            response[i] = isRaining(umidity[i]);
+
+        return response;
     }
 }

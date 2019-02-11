@@ -1,87 +1,70 @@
 package com.gaetanogala.tdd;
 
 import com.gaetanogala.entity.Rain;
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-import java.util.List;
+public class RainTest {
 
-import static org.junit.Assert.*;
-
-@RunWith(MockitoJUnitRunner.class)
-public class RainTest{
-
-    @InjectMocks
-    private Rain testRain;
-
-
-    private void assertIsRainingBeahviour(boolean b, int i) {
-
-        assertEquals(b, testRain.isRaining(i));
-    }
-
-    private void assertIsRainingListBehaviour(List<Boolean> exceptedResult, List<Integer> umidityValues) {
-
-        assertArrayEquals(exceptedResult.toArray(), testRain.isRainingMoreZones(umidityValues).toArray());
-    }
-
+    private Rain rain = new Rain();
 
     @Test
-    public void testGraterFive(){
+    public void testIsRainingWithSix(){
 
-        assertIsRainingBeahviour(true, 6);
+        assertIsRainingBehaviour(true, 6);
     }
 
     @Test
-    public void testLessEqualFive(){
+    public void testIsRainingWithTwo(){
 
-        assertIsRainingBeahviour(false, 4);
+        assertIsRainingBehaviour(false, 2);
+    }
+
+    private void assertIsRainingBehaviour(boolean b, int i) {
+        Assert.assertEquals(b, rain.isRaining(i));
     }
 
     /*
-    * Testare sui cicli implica il dover controllare  l'esecuzione del ciclo con:
-    *   Soli valori veri  - Caso coperto dal primo test
-    *   Soli valori falsi - Caso coperto dai test legati al metodo isRaining utilizzato nel ciclo
-    *   ed interazioni
-    *       Zero
-    *       Uno
-    *       Più di uno - Caso coperto dal primo test
+    * Sui cicli bosogna testare tutte le possibili combinazioni:
+    *
+    *   OK _ solo veri
+    *   OK - solo falsi
+    *       Dato che il controllo sui cicli utilizza un metodo, isRaining, già testato, allora
+    *       diamo per scontati i due precedenti test.
+    *   OK - zero iterazione
+    *   OK - una iterazione
+    *   OK - più di una iterazione
+    *
+    *   Dopo aver testato tutte le possibili combinazioni, facciamo refactoring della classe di test
+    *
     * */
-    @Test
-    public void testRainingMoreZonesAllTrue(){
 
-        assertIsRainingListBehaviour(
-                new ArrayList<Boolean>(){{
-                    add(true);
-                    add(true);
-                    add(true);
-                }},
-                new ArrayList<Integer>(){{
-                    add(6);
-                    add(7);
-                    add(8);
-                }});
+    @Test//Più di una iterazione
+    public void testIsRainingArrayAllTrue(){
+
+        assertIsRainingArrayBehaviour(new boolean[]{true, true, true}, new int[]{6, 6, 6});
     }
 
-    @Test
-    public void testRainingMoreZonesZeroIteractions(){
+    @Test//Nessuna iterazione
+    public void testIsRainingArrayZeroIterations(){
 
-        assertIsRainingListBehaviour(new ArrayList<>(), new ArrayList<>());
+        assertIsRainingArrayBehaviour(new boolean[]{}, new int[]{});
     }
 
-    @Test
-    public void testRainingMoreZones(){
 
-        assertIsRainingListBehaviour(
-                new ArrayList<Boolean>(){{
-                    add(true);
-                }},
-                new ArrayList<Integer>(){{
-                    add(6);
-                }});
+    @Test//Una iterazione
+    public void testIsRainingArrayOneIteration(){
+
+        assertIsRainingArrayBehaviour(new boolean[]{true}, new int[]{6});
     }
+
+    private void assertIsRainingArrayBehaviour(boolean[] expectedResult, int[] umidity) {
+
+        Assert.assertArrayEquals(expectedResult, rain.isRainingArray(umidity));
+    }
+
+
 }
+
+
 

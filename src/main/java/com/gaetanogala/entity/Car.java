@@ -3,12 +3,12 @@ package com.gaetanogala.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="cars")
+@Table(name = "cars")
 public class Car {
 
     @Id
-    @SequenceGenerator(name="carSeq", sequenceName="car_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy=GenerationType.AUTO, generator="carSeq")
+    @SequenceGenerator(name = "carSeq", sequenceName = "car_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "carSeq")
     private String type;
     private String name;
 
@@ -16,7 +16,7 @@ public class Car {
         return type;
     }
 
-    public String getName(){
+    public String getName() {
 
         return name;
     }
