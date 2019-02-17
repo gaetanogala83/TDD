@@ -1,4 +1,4 @@
-package com.gaetanogala.tdd;
+package com.gaetanogala;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
