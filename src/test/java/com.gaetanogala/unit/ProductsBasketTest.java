@@ -1,7 +1,7 @@
 package com.gaetanogala.tdd;
 
-import com.gaetanogala.entity.Product;
-import com.gaetanogala.entity.ProductsBasket;
+import com.gaetanogala.tdd.entity.Product;
+import com.gaetanogala.tdd.entity.ProductsBasket;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

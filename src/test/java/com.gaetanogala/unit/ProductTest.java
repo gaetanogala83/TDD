@@ -1,6 +1,6 @@
 package com.gaetanogala.tdd;
 
-import com.gaetanogala.entity.Product;
+import com.gaetanogala.tdd.entity.Product;
 import org.junit.jupiter.api.*;
 import org.junit.platform.runner.*;
 import org.junit.runner.RunWith;

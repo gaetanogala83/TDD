@@ -1,4 +1,4 @@
-package com.gaetanogala.tdd;
+package com.gaetanogala;
 
 import com.gaetanogala.entity.Product;
 import com.gaetanogala.entity.ProductsBasket;

@@ -1,6 +1,5 @@
 package com.gaetanogala.tdd;
 
-import com.gaetanogala.TddApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 

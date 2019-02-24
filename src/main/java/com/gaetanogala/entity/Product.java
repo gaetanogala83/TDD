@@ -1,6 +1,6 @@
-package com.gaetanogala.entity;
+package com.gaetanogala.tdd.entity;
 
-import com.gaetanogala.interfaces.GenericProduct;
+import com.gaetanogala.tdd.interfaces.GenericProduct;
 
 public class Product implements GenericProduct {
 

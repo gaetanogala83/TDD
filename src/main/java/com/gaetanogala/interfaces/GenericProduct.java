@@ -1,4 +1,4 @@
-package com.gaetanogala.interfaces;
+package com.gaetanogala.tdd.interfaces;
 
 public interface GenericProduct {
 

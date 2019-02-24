@@ -1,4 +1,4 @@
-package com.gaetanogala.entity;
+package com.gaetanogala.tdd.entity;
 
 public class Point {
 

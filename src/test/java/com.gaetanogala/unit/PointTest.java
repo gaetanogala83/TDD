@@ -1,7 +1,7 @@
 package com.gaetanogala.tdd;
 
 
-import com.gaetanogala.entity.Point;
+import com.gaetanogala.tdd.entity.Point;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

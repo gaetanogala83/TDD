@@ -1,6 +1,6 @@
 package com.gaetanogala.tdd;
 
-import com.gaetanogala.entity.Sum;
+import com.gaetanogala.tdd.entity.Sum;
 import org.junit.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
